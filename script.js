@@ -9,7 +9,7 @@ let isResponseGenerating = false; // Flag to prevent duplicate API calls
 
 // API
 const API_KEY = "AIzaSyD5Nb--JEc0xvgfaHW5UbGT75RhlDIwmrQ";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
 
 const loadLocalstorageData = () => {
     const savedChats = localStorage.getItem("savedChats");
@@ -193,3 +193,4 @@ typingForm.addEventListener("submit", (e) => {
     e.preventDefault();
     handleOutgoingChat();
 });
+
