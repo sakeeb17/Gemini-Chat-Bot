@@ -8,7 +8,7 @@ let userMessage = null;
 let isResponseGenerating = false; // Flag to prevent duplicate API calls
 
 // API
-const API_KEY = "AIzaSyD5Nb--JEc0xvgfaHW5UbGT75RhlDIwmrQ";
+const API_KEY = "AIzaSyCTbtl_YbuCMEi2zcErj1DS5vsEdbKvWLk";
 const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
 
 const loadLocalstorageData = () => {
@@ -193,4 +193,5 @@ typingForm.addEventListener("submit", (e) => {
     e.preventDefault();
     handleOutgoingChat();
 });
+
 
