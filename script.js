@@ -8,8 +8,8 @@ let userMessage = null;
 let isResponseGenerating = false; // Flag to prevent duplicate API calls
 
 // API
-const API_KEY = "AIzaSyCoE79qpdlQS-EcpRaZ7bTi3p0g0IIup7c";
-const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro-latest:generateContent?key=${API_KEY}`;
+const API_KEY = "AIzaSyCd4pfULRAv86r8haPOgBvccQzkJorR4g4";
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent`;
 
 const loadLocalstorageData = () => {
     const savedChats = localStorage.getItem("savedChats");
