@@ -9,7 +9,7 @@ let isResponseGenerating = false; // Flag to prevent duplicate API calls
 
 // API
 const API_KEY = "AIzaSyCd4pfULRAv86r8haPOgBvccQzkJorR4g4";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent`;
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
 
 const loadLocalstorageData = () => {
     const savedChats = localStorage.getItem("savedChats");
