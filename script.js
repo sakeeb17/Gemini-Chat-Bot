@@ -60,11 +60,16 @@ const generateAPIResponse = async (incomingMessageDiv) => {
     try {
         const response = await fetch(API_URL, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "x-goog-api-key": API_KEY
+            },
             body: JSON.stringify({
                 contents: [{
                     role: "user",
-                    parts: [{ text: userMessage }]
+                    parts: [{
+                        text: userMessage
+                    }]
                 }]
             })
         });
@@ -72,13 +77,23 @@ const generateAPIResponse = async (incomingMessageDiv) => {
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.error?.message || "API Error");
+            throw new Error(
+                data?.error?.message || "API request failed"
+            );
         }
 
-        const apiResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text
-            ?.replace(/\*\*(.*?)\*\*/g, "$1");
+        const apiResponse =
+            data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
-        showTypingEffect(apiResponse || "No response received.", textElement, incomingMessageDiv);
+        if (!apiResponse) {
+            throw new Error("No response received from Gemini.");
+        }
+
+        showTypingEffect(
+            apiResponse,
+            textElement,
+            incomingMessageDiv
+        );
 
     } catch (error) {
         isResponseGenerating = false;
